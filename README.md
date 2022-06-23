@@ -1,17 +1,18 @@
 # Microsoft Teams Actions #
 
-This is a GitHub Actions that sends a message to a given channel in Microsoft Teams, with the most generic way.
+This is a GitHub Action that sends a message to a given channel in Microsoft Teams. 
+It is completely generic and fully customizable.
 
 
 ## Inputs ##
 
 * `webhook_uri` (**Required**): Incoming webhook URI to Microsoft Teams
-* `title` (Optional): Message title
 * `summary` (**Required**): Message summary
-* `text` (Optional): Message text
-* `theme_color` (Optional): Message theme color
-* `sections` (Optional): JSON array for message sections
-* `actions` (Optional): JSON array for message actions
+* `title`: Message title
+* `text`: Message text
+* `theme_color`: Message theme color
+* `sections`: JSON array for message sections
+* `actions`: JSON array for message actions
 
 ## Outputs ##
 
@@ -23,9 +24,9 @@ This is a GitHub Actions that sends a message to a given channel in Microsoft Te
 ```yaml
 steps:
   name: Send a message to Microsoft Teams
-  uses: aliencube/microsoft-teams-actions@v0.8.0
+  uses: codyhod/generic-teams-action@v0.9.0
   with:
-    webhook_uri: https://outlook.office.com/webhook/<GUID>/IncomingWebhook/<GUID>
+    webhook_uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
     title: <Message Title>
     summary: <Message Summary>
     text: <Message Text>
@@ -36,11 +37,7 @@ steps:
 
 > For more details about `sections` and `actions`: [https://docs.microsoft.com/outlook/actionable-messages/message-card-reference](https://docs.microsoft.com/outlook/actionable-messages/message-card-reference?WT.mc_id=aliencubeorg-github-juyoo)
 
-
-## Contribution ##
-
-Your contributions are always welcome! All your work should be done in your forked repository. Once you finish your work with corresponding tests, please send us a pull request onto our `dev` branch for review.
-
+It is recommended that your webhook_uri be a repository secret, although this is not mandatory.
 
 ## License ##
 
