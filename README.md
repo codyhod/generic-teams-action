@@ -24,7 +24,7 @@ It is completely generic and fully customizable.
 ```yaml
 steps:
   name: Send a message to Microsoft Teams
-  uses: codyhod/generic-teams-action@v0.1
+  uses: codyhod/generic-teams-action@v0.9.0
   with:
     webhook_uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
     title: <Message Title>
